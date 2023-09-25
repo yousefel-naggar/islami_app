@@ -46,13 +46,12 @@ class _SuraDetailsState extends State<SuraDetails> {
                 itemCount: verses.length,
                 itemBuilder: (context, index) {
                   return Center(
-                      child: Directionality(textDirection: TextDirection.rtl,
-                        child: Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Text("${verses[index]}(${index+1})",
-                              textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.bodySmall),
-                        ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("${verses[index]}(${index+1})",
+                            textDirection: TextDirection.rtl,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.bodySmall),
                       ));
                 },
               ),
