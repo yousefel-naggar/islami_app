@@ -3,6 +3,7 @@ import 'package:islami/home_screen.dart';
 import 'package:islami/my_theme_data.dart';
 import 'package:islami/splash_screen.dart';
 import 'package:islami/sura_details.dart';
+import 'package:islami/tabs/hadeth_details.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         SplashScreen.routeName:(context) => SplashScreen(),
         HomeScreen.routeName:(context) => HomeScreen(),
         SuraDetails.routeName:(context) => SuraDetails(),
+        HadethDetails.routeName:(context) => HadethDetails(),
       },
       theme: MyThemeData.lightTheme,
     );
