@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/hadeth_details.dart';
 import 'package:islami/hadeth_model.dart';
 import 'package:islami/my_theme_data.dart';
-import 'package:islami/tabs/hadeth_details.dart';
 
 class HadithTab extends StatelessWidget {
   List<HadethModel> allAhadeth = [];
