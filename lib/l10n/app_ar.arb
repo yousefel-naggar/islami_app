@@ -1,0 +1,14 @@
+{
+  "appTitle": "اسلامي",
+  "suraNames": "اسم السروة",
+  "ahadeth": "احاديث",
+  "numOfTasbeeh": "عدد التسبيح",
+  "quranRadio": "اذاعه القران الكريم",
+  "language": "اللغه",
+  "theming": "السمات",
+  "radioIcon": "راديو",
+  "sebihaIcon": "السبحه",
+  "quranIcon": "القران",
+  "hadithIcon": "الاحاديث",
+  "settingIcon": "الاعدادات"
+}

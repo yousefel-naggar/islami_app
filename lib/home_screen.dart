@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/my_theme_data.dart';
 import 'package:islami/tabs/hadith_tab.dart';
 import 'package:islami/tabs/quran_tab.dart';
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              "islami",
+              AppLocalizations.of(context)!.appTitle,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
@@ -49,23 +50,23 @@ class _HomeScreenState extends State<HomeScreen> {
               items: [
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/radio_icon.png")),
-                    label: "radio",
+                    label: AppLocalizations.of(context)!.hadithIcon,
                     backgroundColor: MyThemeData.primaryLightColor),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/sebha_icon.png")),
-                    label: "sebha",
+                    label: AppLocalizations.of(context)!.sebihaIcon,
                     backgroundColor: MyThemeData.primaryLightColor),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/moshaf.png")),
-                    label: "quran",
+                    label: AppLocalizations.of(context)!.quranIcon,
                     backgroundColor: MyThemeData.primaryLightColor),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/ahadeth.png")),
-                    label: "hadith",
+                    label: AppLocalizations.of(context)!.hadithIcon,
                     backgroundColor: MyThemeData.primaryLightColor),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.settings),
-                    label: "settings",
+                    label: AppLocalizations.of(context)!.settingIcon,
                     backgroundColor: MyThemeData.primaryLightColor),
               ]),
           body: tabs[_indexOfBtnNavBar],
