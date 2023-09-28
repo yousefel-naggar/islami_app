@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/my_theme_data.dart';
+
 
 class SebhaTab extends StatefulWidget {
   @override
@@ -31,7 +33,7 @@ class _SebhaTabState extends State<SebhaTab> {
           Image.asset("assets/images/sebha.png"),
           Spacer(),
           Text(
-            "Number of Tasbeeh",
+            AppLocalizations.of(context)!.numOfTasbeeh,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           Spacer(),
