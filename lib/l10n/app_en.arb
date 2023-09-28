@@ -1,0 +1,14 @@
+{
+  "appTitle": "Islami",
+  "suraNames": "Sura Name",
+  "ahadeth": "Ahadeth",
+  "numOfTasbeeh": "Number of Tasbeeh",
+  "quranRadio": "Quran Radio",
+  "language": "Language",
+  "theming": "Theming",
+  "radioIcon": "Radio",
+  "sebihaIcon": "Sebiha",
+  "quranIcon": "Quran",
+  "hadithIcon": "Hadith",
+  "settingIcon": "Settings"
+}
