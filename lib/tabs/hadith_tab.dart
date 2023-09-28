@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/hadeth_details.dart';
 import 'package:islami/hadeth_model.dart';
 import 'package:islami/my_theme_data.dart';
+
 
 class HadithTab extends StatelessWidget {
   List<HadethModel> allAhadeth = [];
@@ -20,7 +22,7 @@ class HadithTab extends StatelessWidget {
             color: MyThemeData.primaryLightColor,
             thickness: 2,
           ),
-          Text("Ahadeth", style: Theme.of(context).textTheme.bodyMedium),
+          Text(AppLocalizations.of(context)!.ahadeth, style: Theme.of(context).textTheme.bodyMedium),
           Divider(
             color: MyThemeData.primaryLightColor,
             thickness: 2,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/hadeth_details.dart';
 import 'package:islami/home_screen.dart';
 import 'package:islami/my_theme_data.dart';
@@ -16,16 +17,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      //locale: Locale("ar"),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.routeName,
       routes: {
-        SplashScreen.routeName:(context) => SplashScreen(),
-        HomeScreen.routeName:(context) => HomeScreen(),
-        SuraDetails.routeName:(context) => SuraDetails(),
-        HadethDetails.routeName:(context) => HadethDetails(),
+        SplashScreen.routeName: (context) => SplashScreen(),
+        HomeScreen.routeName: (context) => HomeScreen(),
+        SuraDetails.routeName: (context) => SuraDetails(),
+        HadethDetails.routeName: (context) => HadethDetails(),
       },
       theme: MyThemeData.lightTheme,
     );
   }
 }
-
