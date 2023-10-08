@@ -10,5 +10,7 @@
   "sebihaIcon": "السبحه",
   "quranIcon": "القران",
   "hadithIcon": "الاحاديث",
-  "settingIcon": "الاعدادات"
+  "settingIcon": "الاعدادات",
+  "language": "اللغه",
+  "theming": "السمات"
 }

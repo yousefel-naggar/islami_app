@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               items: [
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/radio_icon.png")),
-                    label: AppLocalizations.of(context)!.hadithIcon,
+                    label: AppLocalizations.of(context)!.radioIcon,
                     backgroundColor: MyThemeData.primaryLightColor),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/sebha_icon.png")),
