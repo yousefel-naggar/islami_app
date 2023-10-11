@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import '../bottom_sheets/language_bottom_sheet.dart';
 import '../bottom_sheets/theming_bottom_sheet.dart';
-import '../my_theme_data.dart';
 
 class SettingsTab extends StatefulWidget {
   const SettingsTab({super.key});
@@ -23,7 +22,13 @@ class _SettingsTabState extends State<SettingsTab> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(AppLocalizations.of(context)!.language),
+          Text(
+            AppLocalizations.of(context)!.language,
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: provider.themeMode == ThemeMode.light
+                    ? Theme.of(context).colorScheme.secondary
+                    : Colors.white),
+          ),
           InkWell(
             onTap: () {
               showLanguageBottomSheet();
@@ -34,14 +39,23 @@ class _SettingsTabState extends State<SettingsTab> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: MyThemeData.primaryLightColor)),
-              child: Text(provider.local=="en"?"English":"عربي"),
+                  border:
+                      Border.all(color: Theme.of(context).colorScheme.primary)),
+              child: Text(provider.local == "en" ? "English" : "عربي",
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: provider.themeMode == ThemeMode.light
+                          ? Theme.of(context).colorScheme.secondary
+                          : Colors.white)),
             ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.019,
           ),
-          Text(AppLocalizations.of(context)!.theming),
+          Text(AppLocalizations.of(context)!.theming,
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  color: provider.themeMode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.secondary
+                      : Colors.white)),
           InkWell(
             onTap: () {
               showThemingBottomSheet();
@@ -52,8 +66,14 @@ class _SettingsTabState extends State<SettingsTab> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: MyThemeData.primaryLightColor)),
-              child: Text("light"),
+                  border:
+                      Border.all(color: Theme.of(context).colorScheme.primary)),
+              child: Text(
+                  provider.themeMode == ThemeMode.light ? AppLocalizations.of(context)!.lightTheme : AppLocalizations.of(context)!.darkTheme,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: provider.themeMode == ThemeMode.light
+                          ? Theme.of(context).colorScheme.secondary
+                          : Colors.white)),
             ),
           )
         ],

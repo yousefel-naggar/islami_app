@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/my_theme_data.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/setting_provider.dart';
 
 
 class SebhaTab extends StatefulWidget {
@@ -24,6 +26,7 @@ class _SebhaTabState extends State<SebhaTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context);
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Center(
@@ -34,7 +37,10 @@ class _SebhaTabState extends State<SebhaTab> {
           Spacer(),
           Text(
             AppLocalizations.of(context)!.numOfTasbeeh,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: provider.themeMode == ThemeMode.light
+                    ? Theme.of(context).colorScheme.secondary
+                    : Colors.white),
           ),
           Spacer(),
           InkWell(
@@ -44,14 +50,17 @@ class _SebhaTabState extends State<SebhaTab> {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    color: Color.fromRGBO(183, 147, 95, 100),
+                    color: Theme.of(context).colorScheme.primary.withOpacity(0.6),
                   ),
                   width: width * 0.15,
                   height: height * 0.09,
                   child: Center(
                     child: Text(
                       "$ctr",
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          color: provider.themeMode == ThemeMode.light
+                              ? Theme.of(context).colorScheme.secondary
+                              : Colors.white),
                     ),
                   ),
                 ),
@@ -59,13 +68,16 @@ class _SebhaTabState extends State<SebhaTab> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: MyThemeData.primaryLightColor),
+                      color: Theme.of(context).colorScheme.primary),
                   width: width * 0.4,
                   height: height * 0.059,
                   child: Center(
                     child: Text(
                       "${tashbeeh[index]}",
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          color: provider.themeMode == ThemeMode.light
+                              ? Theme.of(context).colorScheme.secondary
+                              : Colors.white),
                     ),
                   ),
                 ),

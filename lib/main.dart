@@ -34,7 +34,9 @@ class MyApp extends StatelessWidget {
         SuraDetails.routeName: (context) => SuraDetails(),
         HadethDetails.routeName: (context) => HadethDetails(),
       },
+      themeMode: provider.themeMode,
       theme: MyThemeData.lightTheme,
+      darkTheme: MyThemeData.darkTheme,
     );
   }
 }

@@ -12,5 +12,7 @@
   "hadithIcon": "الاحاديث",
   "settingIcon": "الاعدادات",
   "language": "اللغه",
-  "theming": "السمات"
+  "theming": "السمات",
+  "lightTheme": "فاتح",
+  "darkTheme": "داكن"
 }
