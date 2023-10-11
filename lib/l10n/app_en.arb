@@ -12,5 +12,7 @@
   "hadithIcon": "Hadith",
   "settingIcon": "Settings",
   "language": "Language",
-  "theming": "Theming"
+  "theming": "Theming",
+  "lightTheme":"Light",
+  "darkTheme": "Dark"
 }
