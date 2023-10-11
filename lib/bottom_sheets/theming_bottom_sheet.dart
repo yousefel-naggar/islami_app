@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../providers/setting_provider.dart';
 
-class LanguageBottomSheet extends StatelessWidget {
+class ThemingBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<SettingsProvider>(context);
@@ -17,24 +17,24 @@ class LanguageBottomSheet extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              provider.changelanguage("en");
+              provider.changeTheme(ThemeMode.light);
               Navigator.pop(context);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "English",
-                  style: provider.local == "en"
+                  "light",
+                  style: provider.themeMode == ThemeMode.light
                       ? Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).colorScheme.primary)
-                      : Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: provider.themeMode == ThemeMode.light
-                              ? Theme.of(context).colorScheme.secondary
-                              : Colors.white),
+                      : Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: Colors.white),
                 ),
                 Visibility(
-                  visible: provider.local == "en",
+                  visible: provider.themeMode == ThemeMode.light,
                   child: Icon(
                     Icons.check,
                     color: Theme.of(context).colorScheme.primary,
@@ -45,22 +45,21 @@ class LanguageBottomSheet extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              provider.changelanguage("ar");
+              provider.changeTheme(ThemeMode.dark);
               Navigator.pop(context);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("عربي",
-                    style: provider.local == "ar"
-                        ? Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            color: Theme.of(context).colorScheme.primary)
-                        : Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            color: provider.themeMode == ThemeMode.light
-                                ? Theme.of(context).colorScheme.secondary
-                                : Colors.white)),
+                Text(
+                  "dark",
+                  style: provider.themeMode == ThemeMode.dark
+                      ? Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          color: Theme.of(context).colorScheme.primary)
+                      : Theme.of(context).textTheme.bodyMedium,
+                ),
                 Visibility(
-                  visible: provider.local == "ar",
+                  visible: provider.themeMode == ThemeMode.dark,
                   child: Icon(
                     Icons.check,
                     color: Theme.of(context).colorScheme.primary,
