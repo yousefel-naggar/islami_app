@@ -3,14 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/hadeth_details.dart';
 import 'package:islami/hadeth_model.dart';
-import 'package:islami/my_theme_data.dart';
+import 'package:provider/provider.dart';
 
+import '../providers/setting_provider.dart';
 
 class HadithTab extends StatelessWidget {
   List<HadethModel> allAhadeth = [];
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context);
     if (allAhadeth.isEmpty) {
       loadFile();
     }
@@ -19,18 +21,22 @@ class HadithTab extends StatelessWidget {
         children: [
           Image.asset("assets/images/ahadeth_image.png"),
           Divider(
-            color: MyThemeData.primaryLightColor,
+            color: Theme.of(context).colorScheme.primary,
             thickness: 2,
           ),
-          Text(AppLocalizations.of(context)!.ahadeth, style: Theme.of(context).textTheme.bodyMedium),
+          Text(AppLocalizations.of(context)!.ahadeth,
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  color: provider.themeMode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.secondary
+                      : Colors.white)),
           Divider(
-            color: MyThemeData.primaryLightColor,
+            color: Theme.of(context).colorScheme.primary,
             thickness: 2,
           ),
           Expanded(
             child: ListView.separated(
               separatorBuilder: (context, index) => Divider(
-                color: MyThemeData.primaryLightColor,
+                color: Theme.of(context).colorScheme.primary,
                 thickness: 1.5,
                 endIndent: 50,
                 indent: 50,
@@ -45,6 +51,10 @@ class HadithTab extends StatelessWidget {
                     child: Text(
                       "${allAhadeth[index].title}",
                       textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          color: provider.themeMode == ThemeMode.light
+                              ? Theme.of(context).colorScheme.secondary
+                              : Colors.white),
                     ));
               },
             ),
