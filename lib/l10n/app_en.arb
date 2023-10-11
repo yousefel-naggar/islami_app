@@ -10,5 +10,9 @@
   "sebihaIcon": "Sebiha",
   "quranIcon": "Quran",
   "hadithIcon": "Hadith",
-  "settingIcon": "Settings"
+  "settingIcon": "Settings",
+  "language": "Language",
+  "theming": "Theming",
+  "lightTheme":"Light",
+  "darkTheme": "Dark"
 }

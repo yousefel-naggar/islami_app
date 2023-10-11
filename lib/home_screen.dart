@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/my_theme_data.dart';
+import 'package:islami/providers/setting_provider.dart';
 import 'package:islami/tabs/hadith_tab.dart';
 import 'package:islami/tabs/quran_tab.dart';
 import 'package:islami/tabs/radio_tab.dart';
 import 'package:islami/tabs/sebha_tab.dart';
 import 'package:islami/tabs/settings_tab.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "HomeScreen";
@@ -27,10 +28,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context);
     return Stack(
       children: [
         Image.asset(
-          "assets/images/background.png",
+          provider.getBackGround(),
           width: double.infinity,
           fit: BoxFit.cover,
         ),
@@ -38,7 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
           appBar: AppBar(
             title: Text(
               AppLocalizations.of(context)!.appTitle,
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  color: provider.themeMode == ThemeMode.light
+                      ? Theme.of(context).colorScheme.secondary
+                      : Colors.white),
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
@@ -50,24 +55,24 @@ class _HomeScreenState extends State<HomeScreen> {
               items: [
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/radio_icon.png")),
-                    label: AppLocalizations.of(context)!.hadithIcon,
-                    backgroundColor: MyThemeData.primaryLightColor),
+                    label: AppLocalizations.of(context)!.radioIcon,
+                    backgroundColor: Theme.of(context).colorScheme.background),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/sebha_icon.png")),
                     label: AppLocalizations.of(context)!.sebihaIcon,
-                    backgroundColor: MyThemeData.primaryLightColor),
+                    backgroundColor: Theme.of(context).colorScheme.background),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/moshaf.png")),
                     label: AppLocalizations.of(context)!.quranIcon,
-                    backgroundColor: MyThemeData.primaryLightColor),
+                    backgroundColor: Theme.of(context).colorScheme.background),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/ahadeth.png")),
                     label: AppLocalizations.of(context)!.hadithIcon,
-                    backgroundColor: MyThemeData.primaryLightColor),
+                    backgroundColor: Theme.of(context).colorScheme.background),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.settings),
                     label: AppLocalizations.of(context)!.settingIcon,
-                    backgroundColor: MyThemeData.primaryLightColor),
+                    backgroundColor: Theme.of(context).colorScheme.background),
               ]),
           body: tabs[_indexOfBtnNavBar],
         ),
