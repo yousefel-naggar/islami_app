@@ -20,7 +20,10 @@ class HadethDetails extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "${args.title}",
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: provider.themeMode == ThemeMode.light
+                    ? Theme.of(context).colorScheme.secondary
+                    : Colors.white),
           ),
         ),
         body: Padding(
